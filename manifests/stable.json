@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "manifest_type": "joni-distribution",
+  "product": "Personal AI",
+  "assistant": "Джони",
+  "channel": "stable",
+  "release": "0.1.0-test",
+  "minimum_launcher_version": "0.1.7",
+  "profile": {
+    "id": "windows-x64-remote-manifest-test",
+    "os": "windows",
+    "arch": "x64",
+    "min_ram_gb": 4,
+    "gpu_required": false
+  },
+  "components": [
+    {
+      "id": "joni-remote-manifest-probe",
+      "version": "1.0.0",
+      "platform": "windows-x64",
+      "artifact": "joni-remote-probe-v1.txt",
+      "size": 324,
+      "sha256": "f16125117613179f848ddcd9b6ec41b49f3e8a610b42f7ffd9c40cb0024314ce",
+      "critical": false,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [],
+      "install_path": "components/remote-manifest-test/joni-remote-probe-v1.txt",
+      "sources": [
+        "https://raw.githubusercontent.com/mbmurik092-debug/Joni-Distribution/main/artifacts/joni-remote-probe-v1.txt"
+      ],
+      "health": {
+        "type": "sha256",
+        "expected": "f16125117613179f848ddcd9b6ec41b49f3e8a610b42f7ffd9c40cb0024314ce"
+      }
+    }
+  ]
+}
