@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.4",
+  "manifest_type": "joni-llama-runtime",
+  "product": "Personal AI",
+  "assistant": "Джони",
+  "channel": "stable",
+  "release": "0.2.1-llama-runtime-gate",
+  "sequence": 4,
+  "issued_at": "2026-08-28T14:50:00Z",
+  "expires_at": "2026-11-26T23:59:59Z",
+  "minimum_launcher_version": "0.2.1",
+  "signing_key_id": "joni-dev-root-rsa3072-v1",
+  "trust_tier": "development-test",
+  "upstream": {
+    "repository": "ggml-org/llama.cpp",
+    "stable_version": "v0.3.0",
+    "binary_tag": "b10621",
+    "commit": "c1d0e7a004015f23bc0233470b747b596f29b264",
+    "cuda": "13.3"
+  },
+  "profiles": [
+    {
+      "id": "windows-x64-nvidia-cuda13",
+      "priority": 100,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 24,
+        "gpu_vendor": "NVIDIA",
+        "min_vram_mb": 14000,
+        "min_nvidia_driver_major": 580
+      },
+      "roots": [
+        "llama-cuda-bin",
+        "llama-cudart"
+      ]
+    },
+    {
+      "id": "windows-x64-nvidia-cuda12-fallback",
+      "priority": 80,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 16,
+        "gpu_vendor": "NVIDIA",
+        "min_vram_mb": 7000
+      },
+      "roots": [
+        "llama-cuda12-bin",
+        "llama-cudart12"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "llama-cuda-bin",
+      "version": "b10621",
+      "platform": "windows-x64",
+      "artifact": "llama-b10621-bin-win-cuda-13.3-x64.zip",
+      "size": 146446450,
+      "sha256": "23549ccc00b6a18d74348e95d4789f7e96c9efb11cf6e3f1b185baef34d7449f",
+      "critical": true,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [],
+      "install_path": "runtimes/llama.cpp/b10621/cuda13",
+      "sources": [
+        "https://github.com/ggml-org/llama.cpp/releases/download/b10621/llama-b10621-bin-win-cuda-13.3-x64.zip"
+      ],
+      "health": {
+        "type": "archive-sha256"
+      }
+    },
+    {
+      "id": "llama-cudart",
+      "version": "13.3-b10621",
+      "platform": "windows-x64",
+      "artifact": "cudart-llama-bin-win-cuda-13.3-x64.zip",
+      "size": 390970417,
+      "sha256": "1462a050eb4c684921ba51dcc4cc488a036674c3e73e9945ee705b854808d03e",
+      "critical": true,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [
+        "llama-cuda-bin"
+      ],
+      "install_path": "runtimes/llama.cpp/b10621/cuda13",
+      "sources": [
+        "https://github.com/ggml-org/llama.cpp/releases/download/b10621/cudart-llama-bin-win-cuda-13.3-x64.zip"
+      ],
+      "health": {
+        "type": "archive-sha256"
+      }
+    },
+    {
+      "id": "llama-cuda12-bin",
+      "version": "b10621",
+      "platform": "windows-x64",
+      "artifact": "llama-b10621-bin-win-cuda-12.4-x64.zip",
+      "size": 250464283,
+      "sha256": "81c2ff62e14b549cd5c766ccdd5c61f09e821a171655c3047bdccfddc2d1a1e2",
+      "critical": true,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [],
+      "install_path": "runtimes/llama.cpp/b10621/cuda12",
+      "sources": [
+        "https://github.com/ggml-org/llama.cpp/releases/download/b10621/llama-b10621-bin-win-cuda-12.4-x64.zip"
+      ],
+      "health": {
+        "type": "archive-sha256"
+      }
+    },
+    {
+      "id": "llama-cudart12",
+      "version": "12.4-b10621",
+      "platform": "windows-x64",
+      "artifact": "cudart-llama-bin-win-cuda-12.4-x64.zip",
+      "size": 391443627,
+      "sha256": "8c79a9b226de4b3cacfd1f83d24f962d0773be79f1e7b75c6af4ded7e32ae1d6",
+      "critical": true,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [
+        "llama-cuda12-bin"
+      ],
+      "install_path": "runtimes/llama.cpp/b10621/cuda12",
+      "sources": [
+        "https://github.com/ggml-org/llama.cpp/releases/download/b10621/cudart-llama-bin-win-cuda-12.4-x64.zip"
+      ],
+      "health": {
+        "type": "archive-sha256"
+      }
+    }
+  ],
+  "llama_runtime_gate": {
+    "required_executables": [
+      "llama-cli.exe",
+      "llama-server.exe"
+    ],
+    "version_command": [
+      "llama-cli.exe",
+      "--version"
+    ],
+    "device_command": [
+      "llama-cli.exe",
+      "--list-devices"
+    ],
+    "device_stdout_contains": [
+      "CUDA",
+      "NVIDIA GeForce RTX 5080"
+    ],
+    "rollback_test_file": "llama-cli.exe",
+    "required_free_space_mb": 2048
+  }
+}
