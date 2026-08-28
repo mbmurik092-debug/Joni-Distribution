@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.2",
+  "manifest_type": "joni-distribution",
+  "product": "Personal AI",
+  "assistant": "Джони",
+  "channel": "stable",
+  "release": "0.1.0-resolver-test",
+  "minimum_launcher_version": "0.1.9",
+  "sequence": 2,
+  "issued_at": "2026-08-28T14:25:00Z",
+  "expires_at": "2026-11-26T23:59:59Z",
+  "signing_key_id": "joni-dev-root-rsa3072-v1",
+  "trust_tier": "development-test",
+  "profiles": [
+    {
+      "id": "windows-x64-nvidia-16gb-32ram",
+      "priority": 100,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 24,
+        "gpu_vendor": "NVIDIA",
+        "min_vram_mb": 14000
+      },
+      "roots": [
+        "profile-nvidia16"
+      ]
+    },
+    {
+      "id": "windows-x64-nvidia-8gb",
+      "priority": 50,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 16,
+        "gpu_vendor": "NVIDIA",
+        "min_vram_mb": 7000
+      },
+      "roots": [
+        "brain-foundation",
+        "voice-foundation"
+      ]
+    },
+    {
+      "id": "windows-x64-cpu-fallback",
+      "priority": 10,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 8
+      },
+      "roots": [
+        "profile-cpu"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "runtime-base",
+      "version": "1.0.0",
+      "platform": "windows-x64",
+      "artifact": "runtime-base-v1.txt",
+      "size": 140,
+      "sha256": "98925523762cef1eeaa71da8860acc998e668132c85e225577423a938b75507c",
+      "critical": true,
+      "repairable": true,
+      "removable": false,
+      "dependencies": [],
+      "install_path": "components/dependency-gate/runtime-base-v1.txt",
+      "sources": [
+        "https://raw.githubusercontent.com/mbmurik092-debug/Joni-Distribution/main/artifacts/runtime-base-v1.txt"
+      ],
+      "health": {
+        "type": "sha256",
+        "expected": "98925523762cef1eeaa71da8860acc998e668132c85e225577423a938b75507c"
+      }
+    },
+    {
+      "id": "brain-foundation",
+      "version": "1.0.0",
+      "platform": "windows-x64",
+      "artifact": "brain-foundation-v1.txt",
+      "size": 173,
+      "sha256": "14bb28dc5983aa90c3e8e8734a2b3d6d4e6b9348962aee1f56615b881d921c0a",
+      "critical": true,
+      "repairable": true,
+      "removable": false,
+      "dependencies": [
+        "runtime-base"
+      ],
+      "install_path": "components/dependency-gate/brain-foundation-v1.txt",
+      "sources": [
+        "https://raw.githubusercontent.com/mbmurik092-debug/Joni-Distribution/main/artifacts/brain-foundation-v1.txt"
+      ],
+      "health": {
+        "type": "sha256",
+        "expected": "14bb28dc5983aa90c3e8e8734a2b3d6d4e6b9348962aee1f56615b881d921c0a"
+      }
+    },
+    {
+      "id": "voice-foundation",
+      "version": "1.0.0",
+      "platform": "windows-x64",
+      "artifact": "voice-foundation-v1.txt",
+      "size": 173,
+      "sha256": "3bb4db8a4aada97d749fb5af7b0f9a95fb74b24b98db85b3887e2fae02e002f0",
+      "critical": false,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [
+        "runtime-base"
+      ],
+      "install_path": "components/dependency-gate/voice-foundation-v1.txt",
+      "sources": [
+        "https://raw.githubusercontent.com/mbmurik092-debug/Joni-Distribution/main/artifacts/voice-foundation-v1.txt"
+      ],
+      "health": {
+        "type": "sha256",
+        "expected": "3bb4db8a4aada97d749fb5af7b0f9a95fb74b24b98db85b3887e2fae02e002f0"
+      }
+    },
+    {
+      "id": "profile-nvidia16",
+      "version": "1.0.0",
+      "platform": "windows-x64",
+      "artifact": "profile-nvidia16-v1.txt",
+      "size": 224,
+      "sha256": "099d6e86f2782729ea650634a23b9311975ae0060ba3e5d8977ed95cbb7e3a6e",
+      "critical": false,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [
+        "brain-foundation",
+        "voice-foundation"
+      ],
+      "install_path": "components/dependency-gate/profile-nvidia16-v1.txt",
+      "sources": [
+        "https://raw.githubusercontent.com/mbmurik092-debug/Joni-Distribution/main/artifacts/profile-nvidia16-v1.txt"
+      ],
+      "health": {
+        "type": "sha256",
+        "expected": "099d6e86f2782729ea650634a23b9311975ae0060ba3e5d8977ed95cbb7e3a6e"
+      }
+    },
+    {
+      "id": "profile-cpu",
+      "version": "1.0.0",
+      "platform": "windows-x64",
+      "artifact": "profile-cpu-v1.txt",
+      "size": 196,
+      "sha256": "78ed437377da1089d379b18fedf0bcabe8f9d275b463894acc4b8970dcbf3984",
+      "critical": false,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [
+        "brain-foundation"
+      ],
+      "install_path": "components/dependency-gate/profile-cpu-v1.txt",
+      "sources": [
+        "https://raw.githubusercontent.com/mbmurik092-debug/Joni-Distribution/main/artifacts/profile-cpu-v1.txt"
+      ],
+      "health": {
+        "type": "sha256",
+        "expected": "78ed437377da1089d379b18fedf0bcabe8f9d275b463894acc4b8970dcbf3984"
+      }
+    }
+  ]
+}
