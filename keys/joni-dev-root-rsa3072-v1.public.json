@@ -1,0 +1,10 @@
+{
+  "key_id": "joni-dev-root-rsa3072-v1",
+  "algorithm": "RSA-3072",
+  "signature": "RSASSA-PKCS1-v1_5",
+  "hash": "SHA-256",
+  "trust_tier": "development-test",
+  "modulus_base64": "yrjlDP/61ngs36e5lpmHCSOD5QgLD4+U9xR4El04KU0Kp7w0+J1DR8E2o69lbGJTApK0GADzTm/9JR1KyVdoOFnnt0Hx+4uT9lsx2uXPn+yApzE4wUMwKLCJ0a8K+ZB2w/sCTMSRC3Vz1R9sn3cQHK1OTsS/GpsIXAIBDncfK0VckoJLs0Z0miezHE63L4Xj3KPLfyWR9MNkBLuOf99J8lPGvmFaEC/PHYlWJsLMYQHiZfSRJPEimvwiXaQhtwQQQG4QBTusWm8XiGRq0DWC/kos742yXJ808sPQM4oAs7wFQ34jyyNXbgdpxb0BJMYdQQOhgvVDm6QI4WCoJI7MHUfOCZr2H3jAyHeh8SrcldGm8wTae/WVTF+s+UpHn/5JE6EGinM30PKQW1X0hpzOQU/bJzuqGcP1H1E/y+NIU2zFp/ZmQdFxwL2ip9I5fEOUf7sxi1cQ4sZ/SYm1Kqruay+2dXQf/p7INcp4R1tPucwRjrQSvKxakH+ZRGy3D1dz",
+  "exponent_base64": "AQAB",
+  "note": "Development test key only. The production root key must be generated offline and must never be committed to GitHub."
+}
