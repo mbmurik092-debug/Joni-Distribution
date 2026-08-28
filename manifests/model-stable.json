@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.5",
+  "manifest_type": "joni-model",
+  "product": "Personal AI",
+  "assistant": "Джони",
+  "channel": "stable",
+  "release": "0.2.2-first-model-gate",
+  "sequence": 5,
+  "issued_at": "2026-08-28T15:10:00Z",
+  "expires_at": "2026-11-26T23:59:59Z",
+  "minimum_launcher_version": "0.2.2",
+  "signing_key_id": "joni-dev-root-rsa3072-v1",
+  "trust_tier": "development-test",
+  "model": {
+    "id": "qwen3-0.6b-q8_0-gate",
+    "display_name": "Qwen3 0.6B Q8_0 — First Model Gate",
+    "provider": "Qwen",
+    "repository": "Qwen/Qwen3-0.6B-GGUF",
+    "repository_commit": "1eaf4d9657fe65ad10a51eab76a8db5b363bddaa",
+    "filename": "Qwen3-0.6B-Q8_0.gguf",
+    "format": "GGUF",
+    "quantization": "Q8_0",
+    "parameters_billion": 0.6,
+    "license": "Apache-2.0",
+    "role": "gate-test",
+    "size": 639446688,
+    "sha256": "9465e63a22add5354d9bb4b99e90117043c7124007664907259bd16d043bb031",
+    "sources": [
+      "https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/resolve/1eaf4d9657fe65ad10a51eab76a8db5b363bddaa/Qwen3-0.6B-Q8_0.gguf?download=true"
+    ],
+    "install_path": "models/qwen/qwen3-0.6b/Qwen3-0.6B-Q8_0.gguf"
+  },
+  "runtime": {
+    "engine": "llama.cpp",
+    "minimum_runtime_tag": "b10621",
+    "host": "127.0.0.1",
+    "context_size": 2048,
+    "gpu_layers": 99,
+    "jinja": true,
+    "web_ui": false,
+    "api_key_required": true
+  },
+  "acceptance": {
+    "gguf_magic_ascii": "GGUF",
+    "health_endpoint": "/health",
+    "models_endpoint": "/v1/models",
+    "chat_endpoint": "/v1/chat/completions",
+    "prompt": "Reply with exactly JONI_MODEL_GATE_OK /no_think",
+    "expected_substring": "JONI_MODEL_GATE_OK",
+    "max_tokens": 32,
+    "temperature": 0.0,
+    "rollback_test": true,
+    "required_free_space_mb": 3072
+  }
+}
