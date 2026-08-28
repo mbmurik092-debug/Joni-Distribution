@@ -1,0 +1,7 @@
+JONI_REMOTE_MANIFEST_GATE_ARTIFACT_V1
+Product: Personal AI
+Assistant: Джони
+Purpose: harmless deterministic remote-manifest delivery probe.
+Executable: no
+Administrator privileges: not required
+This file exists only to validate HTTPS download, resume/fallback, SHA-256, staging, install, health check and safe removal.
