@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.3",
+  "manifest_type": "joni-runtime",
+  "product": "Personal AI",
+  "assistant": "Джони",
+  "channel": "stable",
+  "release": "0.2.0-runtime-gate",
+  "sequence": 3,
+  "issued_at": "2026-08-28T14:35:00Z",
+  "expires_at": "2026-11-26T23:59:59Z",
+  "minimum_launcher_version": "0.2.0",
+  "signing_key_id": "joni-dev-root-rsa3072-v1",
+  "trust_tier": "development-test",
+  "profiles": [
+    {
+      "id": "windows-x64-nvidia-16gb-32ram",
+      "priority": 100,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 24,
+        "gpu_vendor": "NVIDIA",
+        "min_vram_mb": 14000
+      },
+      "roots": [
+        "joni-runtime-source"
+      ]
+    },
+    {
+      "id": "windows-x64-nvidia-8gb",
+      "priority": 80,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 16,
+        "gpu_vendor": "NVIDIA",
+        "min_vram_mb": 7000
+      },
+      "roots": [
+        "joni-runtime-source"
+      ]
+    },
+    {
+      "id": "windows-x64-cpu",
+      "priority": 10,
+      "requirements": {
+        "os": "windows",
+        "arch": "x64",
+        "min_ram_gb": 8
+      },
+      "roots": [
+        "joni-runtime-source"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "joni-runtime-source",
+      "version": "0.0.1",
+      "platform": "windows-x64",
+      "artifact": "joni-runtime-v0.0.1.cs",
+      "size": 2026,
+      "sha256": "61dce7e6f0f5cc89524089b50a905808a5d26ea4c33e21e952374cddf6da287d",
+      "critical": true,
+      "repairable": true,
+      "removable": true,
+      "dependencies": [],
+      "install_path": "components/runtime-source/joni-runtime-v0.0.1.cs",
+      "sources": [
+        "https://raw.githubusercontent.com/mbmurik092-debug/Joni-Distribution/main/artifacts/runtime/joni-runtime-v0.0.1.cs"
+      ],
+      "health": {
+        "type": "sha256",
+        "expected": "61dce7e6f0f5cc89524089b50a905808a5d26ea4c33e21e952374cddf6da287d"
+      }
+    }
+  ],
+  "runtime_gate": {
+    "source_component": "joni-runtime-source",
+    "output_path": "runtime/joni-runtime.exe",
+    "heartbeat_path": "runtime/joni-runtime-heartbeat.json",
+    "health_argument": "--health",
+    "health_stdout_contains": "JONI_RUNTIME_HEALTH_OK",
+    "compile_mode": "windows-csharp-codedom",
+    "rollback_test": true
+  }
+}
