@@ -1,0 +1,7 @@
+JONI_DEPENDENCY_GATE_PROFILE_CPU_V1
+Product: Personal AI
+Assistant: Джони
+Profile: windows-x64-cpu-fallback
+Depends-On: brain-foundation
+Role: harmless fallback-profile marker
+Executable: no
