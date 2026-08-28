@@ -1,0 +1,5 @@
+JONI_DEPENDENCY_GATE_RUNTIME_BASE_V1
+Product: Personal AI
+Assistant: Джони
+Role: harmless runtime-base dependency probe
+Executable: no
