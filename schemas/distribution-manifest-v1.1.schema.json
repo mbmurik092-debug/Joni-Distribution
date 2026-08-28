@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://joni.local/schemas/distribution-manifest-v1.1.json",
+  "title": "Joni Distribution Manifest v1.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest_type",
+    "product",
+    "assistant",
+    "channel",
+    "release",
+    "sequence",
+    "issued_at",
+    "expires_at",
+    "minimum_launcher_version",
+    "signing_key_id",
+    "trust_tier",
+    "profile",
+    "components"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.1" },
+    "manifest_type": { "const": "joni-distribution" },
+    "product": { "const": "Personal AI" },
+    "assistant": { "const": "Джони" },
+    "channel": { "enum": ["stable", "beta", "dev"] },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "issued_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "signing_key_id": { "type": "string", "minLength": 1 },
+    "trust_tier": { "enum": ["development-test", "production"] },
+    "components": { "type": "array", "minItems": 1 }
+  },
+  "additionalProperties": true
+}
