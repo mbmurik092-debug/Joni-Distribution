@@ -1,0 +1,7 @@
+JONI_DEPENDENCY_GATE_PROFILE_NVIDIA16_V1
+Product: Personal AI
+Assistant: Джони
+Profile: windows-x64-nvidia-16gb-32ram
+Depends-On: brain-foundation, voice-foundation
+Role: harmless selected-profile marker
+Executable: no
