@@ -1,0 +1,6 @@
+JONI_DEPENDENCY_GATE_VOICE_FOUNDATION_V1
+Product: Personal AI
+Assistant: Джони
+Depends-On: runtime-base
+Role: harmless voice foundation dependency probe
+Executable: no
